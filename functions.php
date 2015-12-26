@@ -90,3 +90,24 @@ function chemiko_scripts() {
     wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/dist/js/bootstrap.js', array( 'jquery' ), '3.3.6', true );
 }
 add_action( 'wp_enqueue_scripts', 'chemiko_scripts' );
+
+
+
+function pll_custom_menu_flag($slug, $css_style=''){
+    $arr_flag = array();
+    foreach($slug as $key => $value):
+            if($value['slug']=='cs'){
+                echo '<img src="'.get_stylesheet_directory_uri().'/images/flag_cs.png" '. $css_style .' />';
+            }
+            if($value['slug']=='en'){
+                echo '<img src="'.get_stylesheet_directory_uri().'/images/flag_en.png" '. $css_style .' />';
+            }
+            if($value['slug']=='ukr'){
+                echo '<img src="'.get_stylesheet_directory_uri().'/images/flag_ukr.png" '. $css_style .' />';
+            }
+            if($value['slug']=='ru'){
+                echo '<img src="'.get_stylesheet_directory_uri().'/images/flag_ru.png" '. $css_style .' />';
+            }
+    endforeach;
+    return $arr_flag;
+}

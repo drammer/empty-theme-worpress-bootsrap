@@ -23,6 +23,9 @@
 </head>
 
 <body>
+<?php $pll_lang = array(
+    'raw'=>1,
+);?>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -36,11 +39,21 @@
             <a class="navbar-brand" href="#">Project name</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+
+            <?php echo wp_nav_menu( array(
+                'menu'          => 'Top menu',
+                'container'     => 'div',
+                'menu_class'    => 'nav navbar-nav ',
+            ));?>
+<div class="polylang-custom-block">
+    <?php pll_custom_menu_flag(pll_the_languages($pll_lang), 'class="flag-lang"');?>
+</div>
+
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li class="active"><a href="#">Home</a></li>-->
+<!--                <li><a href="#about">About</a></li>-->
+<!--                <li><a href="#contact">Contact</a></li>-->
+<!--            </ul>-->
         </div><!--/.nav-collapse -->
     </div>
 </nav>
